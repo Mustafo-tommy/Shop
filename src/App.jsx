@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import CardNav from "./components/CardNav";
 import logo from "./assets/react.svg";
 import FloatingLines from "./components/FloatingLines";
@@ -6,6 +7,7 @@ const App = () => {
   const items = [
     {
       label: "About",
+      to: "/about",
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [
@@ -14,7 +16,8 @@ const App = () => {
       ],
     },
     {
-      label: "Projects",
+      label: "Products",
+      to: "/products",
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
@@ -24,6 +27,7 @@ const App = () => {
     },
     {
       label: "Contact",
+      to: "/contact",
       bgColor: "#271E37",
       textColor: "#fff",
       links: [
@@ -40,20 +44,18 @@ const App = () => {
         logo={logo}
         logoAlt="Company Logo"
         items={items}
-        baseColor="transparent" // ← было #fff
-        menuColor="#fff" // текст делаем белым
+        baseColor="transparent"
+        menuColor="#fff"
         buttonBgColor="#111"
         buttonTextColor="#fff"
         ease="power3.out"
-        theme="dark" // ← было light
+        theme="dark"
       />
 
       <div style={{ width: "100%", height: "600px", position: "relative" }}>
         <FloatingLines
           enabledWaves={["top", "middle", "bottom"]}
-          // Array - specify line count per wave; Number - same count for all waves
           lineCount={5}
-          // Array - specify line distance per wave; Number - same distance for all waves
           lineDistance={5}
           bendRadius={5}
           bendStrength={-0.5}
@@ -61,6 +63,10 @@ const App = () => {
           parallax={true}
         />
       </div>
+
+      <main style={{ padding: "2rem", color: "#fff" }}>
+        <Outlet />
+      </main>
     </div>
   );
 };
