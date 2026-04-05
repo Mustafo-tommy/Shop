@@ -167,6 +167,7 @@ const CardNav = ({
             type="button"
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            onClick={() => navigate("/products")}
           >
             Get Started
           </button>
@@ -174,16 +175,16 @@ const CardNav = ({
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
           {(items || []).slice(0, 3).map((item, idx) => (
-            <div onClick={() => {
-              navigate(item.to);
-              toggleMenu();
-            }}
+            <div
+              onClick={() => {
+                navigate(item.to);
+                toggleMenu();
+              }}
               key={`${item.label}-${idx}`}
               className="nav-card"
               ref={setCardRef(idx)}
               style={{ backgroundColor: item.bgColor, color: item.textColor }}
             >
-
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
                 {item.links?.map((lnk, i) => (

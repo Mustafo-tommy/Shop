@@ -39,36 +39,37 @@ const App = () => {
   ];
 
   return (
-    <div>
-      <CardNav
-        logo={logo}
-        logoAlt="Company Logo"
-        items={items}
-        baseColor="transparent"
-        menuColor="#fff"
-        buttonBgColor="#111"
-        buttonTextColor="#fff"
-        ease="power3.out"
-        theme="dark"
-      />
-
-      <div style={{ width: "100%", height: "600px", position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        background: "#0f0a1a",
+      }}
+    >
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
         <FloatingLines
           enabledWaves={["top", "middle", "bottom"]}
           lineCount={5}
           lineDistance={5}
           bendRadius={5}
           bendStrength={-0.5}
-          interactive={true}
-          parallax={true}
+          interactive={false}
+          parallax={false}
         />
       </div>
-
-      <main style={{ padding: "2rem", color: "#fff" }}>
-        <Outlet />
-      </main>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <main style={{ color: "#fff" }}>
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };
-
 export default App;

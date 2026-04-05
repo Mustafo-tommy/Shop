@@ -7,15 +7,15 @@ import Products from "./pages/Products.jsx";
 import Contact from "./pages/Contact.jsx";
 
 createRoot(document.getElementById("root")).render(
-   <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Products />} />
-          <Route path="products" element={<Products />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-   </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index element={<About />} />
+        <Route path="about" element={<About />} />
+        <Route path="products" element={<Products />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>,
 );
